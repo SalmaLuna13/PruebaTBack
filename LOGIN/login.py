@@ -1,8 +1,11 @@
 from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import check_password_hash
+from flask_cors import CORS
 
 app = Flask(__name__)
+
+CORS(app, origins=["https://salmaluna13.github.io"]) 
 
 # Configuración de la base de datos MySQL
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:sotelo@localhost/TamakásExplor'
