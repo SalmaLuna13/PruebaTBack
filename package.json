@@ -1,7 +1,12 @@
 {
+  "name": "mi-backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node index.js"
+  },
   "dependencies": {
-    "@tailwindcss/vite": "^4.1.3",
-    "lucide-react": "^0.487.0",
-    "tailwindcss": "^4.1.3"
+    "express": "^4.18.2"
   }
 }
