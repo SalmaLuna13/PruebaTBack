@@ -22,6 +22,14 @@ class User(db.Model):
 with app.app_context():
     db.create_all()
 
+    # Middleware para configurar CORS (se ejecuta después de cada solicitud)
+@app.after_request
+def after_request(response):
+    response.headers['Access-Control-Allow-Origin'] = 'https://salmaluna13.github.io'  # Origen permitido
+    response.headers['Access-Control-Allow-Methods'] = 'GET, POST, OPTIONS'  # Métodos permitidos
+    response.headers['Access-Control-Allow-Headers'] = 'Content-Type'  # Encabezados permitidos
+    return response
+
 @app.route('/', methods=['GET'])
 def home():
     return jsonify({'message': 'Bienvenido a la API de inicio de sesión.'})
