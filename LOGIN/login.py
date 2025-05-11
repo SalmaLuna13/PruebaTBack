@@ -5,7 +5,8 @@ from flask_cors import CORS
 
 app = Flask(__name__)
 
-CORS(app, origins=["https://salmaluna13.github.io"]) 
+# Habilitar CORS globalmente para todas las rutas
+CORS(app, resources={r"/*": {"origins": "https://salmaluna13.github.io"}})
 
 # Configuración de la base de datos MySQL
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:sotelo@localhost/TamakásExplor'
@@ -22,14 +23,7 @@ class User(db.Model):
 with app.app_context():
     db.create_all()
 
-    # Middleware para configurar CORS (se ejecuta después de cada solicitud)
-@app.after_request
-def after_request(response):
-    response.headers['Access-Control-Allow-Origin'] = 'https://salmaluna13.github.io'  # Origen permitido
-    response.headers['Access-Control-Allow-Methods'] = 'GET, POST, OPTIONS'  # Métodos permitidos
-    response.headers['Access-Control-Allow-Headers'] = 'Content-Type'  # Encabezados permitidos
-    return response
-
+# Ruta de inicio
 @app.route('/', methods=['GET'])
 def home():
     return jsonify({'message': 'Bienvenido a la API de inicio de sesión.'})
