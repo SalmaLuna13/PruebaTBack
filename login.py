@@ -9,7 +9,7 @@ app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "https://salmaluna13.github.io"}})
 
 # Configuración de la base de datos MySQL
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:sotelo@localhost/TamakásExplor'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:nXBbTKMgdWKKSaVHgXoDxGZouUEJbWaj@crossover.proxy.rlwy.net:46904/railway'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
