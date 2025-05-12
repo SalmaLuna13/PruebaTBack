@@ -17,7 +17,7 @@ def create_app():
     app.register_blueprint(usuarios.bp, url_prefix='/usuarios')
 
     # Configurar CORS solo para tu frontend
-    CORS(app, origins=["https://salmaluna13.github.io"])
+    CORS(app)
 
     return app
 
