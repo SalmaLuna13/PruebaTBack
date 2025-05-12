@@ -12,10 +12,10 @@ app = Flask(__name__)
 bp = Blueprint('auth', __name__)
 
 # Habilitar CORS globalmente para todas las rutas
-CORS(app, origins="https://salmaluna13.github.io", methods=["GET", "POST", "OPTIONS"], 
-     allow_headers=["Content-Type", "Authorization"])
+CORS(app)
 
 app.register_blueprint(bp, url_prefix='/auth')
+
 
 # Configuración de la base de datos MySQL
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:nXBbTKMgdWKKSaVHgXoDxGZouUEJbWaj@crossover.proxy.rlwy.net:46904/railway'
