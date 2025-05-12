@@ -3,7 +3,13 @@ from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import check_password_hash
 from flask_cors import CORS  # Importar la librería CORS
 
+# Import Blueprint to define `bp`
+from flask import Blueprint
+
 app = Flask(__name__)
+
+# Define the missing `bp` variable
+bp = Blueprint('auth', __name__)
 
 # Habilitar CORS globalmente para todas las rutas
 CORS(app, resources={r"/*": {"origins": "https://salmaluna13.github.io"}})

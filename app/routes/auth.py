@@ -1,5 +1,7 @@
-from flask import Blueprint, request, jsonify
+from flask import Flask, request, jsonify, Blueprint
 from werkzeug.security import generate_password_hash, check_password_hash
+from marshmallow import Schema, fields
+from flask_cors import CORS  # Importar CORS
 from app.models import registro, Usuarios, reseña, Favoritos, Niveles
 from app.Schemas.schemas_reseña import ReseñaSchema
 from marshmallow import ValidationError
@@ -7,6 +9,7 @@ from app import db
 
 bp = Blueprint('auth', __name__)
 
+# Initialize Flask app and enable CORS
 app = Flask(__name__)
 CORS(app)  # Esto permite todas las solicitudes desde cualquier origen
 
