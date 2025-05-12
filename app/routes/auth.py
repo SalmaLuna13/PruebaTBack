@@ -20,9 +20,9 @@ def saludo():
 
 
 
-@bp.route('/register', methods=['GET', 'POST'])
+@bp.route('/register', methods=['POST'])
 def register():
-    if request.method == 'GET':
+    if request.method == 'POST':
         return jsonify({'message': 'Método GET no implementado para esta ruta.'}), 405
 
     data = request.json

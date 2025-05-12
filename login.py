@@ -12,7 +12,8 @@ app = Flask(__name__)
 bp = Blueprint('auth', __name__)
 
 # Habilitar CORS globalmente para todas las rutas
-CORS(app)
+CORS(app, origins="https://salmaluna13.github.io", methods=["GET", "POST", "OPTIONS"], 
+     allow_headers=["Content-Type", "Authorization"])
 
 app.register_blueprint(bp, url_prefix='/auth')
 
@@ -33,12 +34,12 @@ with app.app_context():
     db.create_all()
 
 # Ruta de inicio
-@app.route('/', methods=['GET'])
+@bp.route('/', methods=['GET'])
 def home():
     return jsonify({'message': 'Bienvenido a la API de inicio de sesión.'})
 
 # Ruta para iniciar sesión
-@app.route('/login', methods=['POST'])
+@bp.route('/login', methods=['POST'])
 def login():
     data = request.json
     name = data.get('name')
