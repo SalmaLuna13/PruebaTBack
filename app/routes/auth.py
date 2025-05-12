@@ -11,7 +11,7 @@ bp = Blueprint('auth', __name__)
 
 # Initialize Flask app and enable CORS
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": "https://salmaluna13.github.io"}}, methods=["GET", "POST", "OPTIONS"], allow_headers=["Content-Type", "Authorization"])  # Configurar CORS para permitir solicitudes desde el origen del frontend
+CORS(app)  # Esto permite todas las solicitudes desde cualquier origen
 
 
 @bp.route('/api/saludo')
