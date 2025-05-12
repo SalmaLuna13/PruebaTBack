@@ -19,13 +19,9 @@ def saludo():
     return jsonify({"mensaje": "Hola desde Flask!"})
 
 
-
-
-@bp.route('/register', methods=['GET, POST'])
+@bp.route('/register', methods=['POST'])
 def register():
-    if request.method == 'GET':
-        return jsonify({'message': 'Método GET no implementado para esta ruta.'}), 405
-
+    # Eliminar la verificación incorrecta del método GET
     data = request.json
     usuario = data.get('usuario')
     correo = data.get('correo')
@@ -48,6 +44,7 @@ def register():
     db.session.add(nuevo_registro)
     db.session.commit()  # Necesario para obtener el id_registro generado
     return jsonify({'message': 'Usuario registrado exitosamente.'}), 201
+
 
 @bp.route('/login', methods=['POST'])
 def login():
