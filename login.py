@@ -12,7 +12,8 @@ app = Flask(__name__)
 bp = Blueprint('auth', __name__)
 
 # Habilitar CORS globalmente para todas las rutas
-CORS(app, resources={r"/*": {"origins": "https://salmaluna13.github.io"}})
+CORS(app, origins="https://salmaluna13.github.io", methods=["GET", "POST", "OPTIONS"], 
+     allow_headers=["Content-Type", "Authorization"])
 
 app.register_blueprint(bp, url_prefix='/auth')
 
