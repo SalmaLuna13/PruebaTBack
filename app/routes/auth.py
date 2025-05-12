@@ -11,12 +11,8 @@ bp = Blueprint('auth', __name__)
 
 # Initialize Flask app and enable CORS
 app = Flask(__name__)
-
 CORS(app)  # Esto permite todas las solicitudes desde cualquier origen
 
-
-
-app.register_blueprint(bp, url_prefix='/auth')
 
 @bp.route('/api/saludo')
 def saludo():
