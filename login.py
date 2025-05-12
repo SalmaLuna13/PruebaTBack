@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import check_password_hash
-from flask_cors import CORS
+from flask_cors import CORS  # Importar la librería CORS
 
 app = Flask(__name__)
 
