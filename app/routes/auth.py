@@ -4,12 +4,8 @@ from app.models import registro, Usuarios, reseña, Favoritos, Niveles
 from app.Schemas.schemas_reseña import ReseñaSchema
 from marshmallow import ValidationError
 from app import db
-from flask_cors import CORS
-from flask import Flask
 
-bp = Blueprint('auth', __name__)  # Mover esta línea al inicio del archivo
-
-
+bp = Blueprint('auth', __name__)
 
 app = Flask(__name__)
 CORS(app)  # Esto permite todas las solicitudes desde cualquier origen
